@@ -436,16 +436,16 @@ export default function Services() {
                 <TooltipTrigger asChild>
                   <div>
                     <Button
-                      asChild
                       variant="outline"
                       size="lg"
-                      className="border-primary/50 text-foreground hover:bg-primary/5"
+                      disabled
+                      className="border-primary/50 text-primary/50 opacity-50 cursor-not-allowed"
                     >
-                      <Link to="/pricing">View Pricing Packages</Link>
+                      View Ready-Made Products
                     </Button>
                   </div>
                 </TooltipTrigger>
-                <TooltipContent>View our standard packages</TooltipContent>
+                <TooltipContent>Coming Soon</TooltipContent>
               </Tooltip>
             </div>
           </div>

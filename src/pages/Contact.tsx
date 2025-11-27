@@ -31,6 +31,7 @@ import {
   Linkedin,
   Instagram,
   Github,
+  Facebook,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -364,24 +365,29 @@ export default function Contact() {
                 <div className="flex space-x-4">
                   {[
                     {
-                      icon: <Twitter className="w-5 h-5" />,
-                      href: "#",
-                      label: "Twitter",
-                    },
-                    {
-                      icon: <Linkedin className="w-5 h-5" />,
-                      href: "#",
-                      label: "LinkedIn",
-                    },
-                    {
-                      icon: <Instagram className="w-5 h-5" />,
-                      href: "#",
-                      label: "Instagram",
-                    },
-                    {
                       icon: <Github className="w-5 h-5" />,
                       href: "https://github.com/Digital-Mafia-Solution",
                       label: "Github",
+                    },
+                    {
+                      icon: <Linkedin className="w-5 h-5" />,
+                      href: "https://www.linkedin.com/company/dm-solutions-za",
+                      label: "LinkedIn",
+                    },
+                    {
+                      icon: <Twitter className="w-5 h-5" />,
+                      href: "https://x.com/DigitalMafia_ZA",
+                      label: "Twitter",
+                    },
+                    {
+                      icon: <Instagram className="w-5 h-5" />,
+                      href: "https://www.instagram.com/digital_mafia_solutions/",
+                      label: "Instagram",
+                    },
+                    {
+                      icon: <Facebook className="w-5 h-5" />,
+                      href: "https://www.facebook.com/profile.php?id=61581814615331",
+                      label: "Facebook",
                     },
                   ].map((social) => (
                     <a
