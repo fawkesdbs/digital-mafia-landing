@@ -25,7 +25,10 @@ export default function Privacy() {
                 Our appointed Information Officer is responsible for ensuring
                 compliance.
                 <br />
-                Contact: hello@digitalmafia.co.za
+                Contact:{" "}
+                <a href="mailto:info@digitalmafia.co.za">
+                  info@digitalmafia.co.za
+                </a>
               </p>
             </section>
 
