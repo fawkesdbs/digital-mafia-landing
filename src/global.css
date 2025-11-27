@@ -175,37 +175,7 @@
   }
 }
 
-/* Digital Mafia Solutions Custom Animations */
-@keyframes glow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(118, 255, 128, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(118, 255, 128, 0.6);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes gradient-shift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
+/* Digital Mafia Solutions - Enhanced Animations */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -218,7 +188,7 @@
 @keyframes slide-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -240,7 +210,7 @@
 @keyframes scale-in-pop {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -248,13 +218,59 @@
   }
 }
 
-/* Custom Utility Classes */
-.animate-glow {
-  animation: glow 3s ease-in-out infinite;
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(118, 255, 128, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(118, 255, 128, 0.4);
+  }
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Custom Utility Classes with improved Cubic Bezier timing */
+.animate-fade-in {
+  animation: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
 }
 
 .animate-gradient {
@@ -263,20 +279,13 @@
   animation: gradient-shift 15s ease infinite;
 }
 
-.animate-fade-in {
-  animation: fade-in 0.6s ease-out;
+/* Add a hover lift effect for cards */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
-
-.animate-slide-in-up {
-  animation: slide-in-up 0.6s ease-out;
-}
-
-.animate-slide-in-left {
-  animation: slide-in-left 0.6s ease-out;
-}
-
-.animate-scale-in {
-  animation: scale-in-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
 /* Smooth scrolling for better UX */

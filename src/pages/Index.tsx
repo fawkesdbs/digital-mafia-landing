@@ -477,8 +477,7 @@ export default function Index() {
               Have a Project or <span className="text-primary">Challenge</span>?
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Let's build your solution. Whether you need a custom approach or
-              one of our ready-made products, we're here to help you succeed.
+              Let's build your solution. We're here to help you succeed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button

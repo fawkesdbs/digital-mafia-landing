@@ -12,6 +12,7 @@ import {
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import profileDark from "../assets/profile-dark.png";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -21,12 +22,6 @@ export default function Footer() {
     { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
   ];
-
-  {
-    /* { href: "/products", label: "Products" },
-  { href: "/portfolio", label: "Portfolio" }, 
-  { href: "/products", label: "Ready-Made Products" }, */
-  }
 
   const services = [
     { href: "/services", label: "Digital Strategy" },
@@ -46,7 +41,8 @@ export default function Footer() {
     <footer className="bg-card/50 border-t border-border">
       <div className="container mx-auto px-6">
         {/* Main Footer Content */}
-        <div className="py-16 grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+        {/* Changed grid-cols-4 to grid-cols-3 since Newsletter is hidden */}
+        <div className="py-16 grid lg:grid-cols-3 md:grid-cols-2 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center space-x-2 mb-6">
@@ -55,11 +51,6 @@ export default function Footer() {
                 alt="Logo"
                 className="w-8 h-8 rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300"
               />
-              {/* <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">
-                  D
-                </span>
-              </div> */}
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-foreground">
                   Digital Mafia
@@ -74,6 +65,21 @@ export default function Footer() {
               tailored digital solutions that drive growth and build lasting
               connections.
             </p>
+
+            {/* Social Links moved here to fill space since Newsletter is hidden */}
+            <div className="flex space-x-3 mb-6">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  className="w-9 h-9 bg-muted hover:bg-primary hover:text-primary-foreground rounded-lg flex items-center justify-center transition-colors group"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                 <Mail className="w-4 h-4 text-primary" />
@@ -91,7 +97,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="lg:pl-12">
             <h3 className="text-lg font-semibold text-foreground mb-6">
               Quick Links
             </h3>
@@ -128,7 +134,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Newsletter - Hidden */}
           <div className="hidden">
             <h3 className="text-lg font-semibold text-foreground mb-6">
               Stay Updated
@@ -154,25 +160,6 @@ export default function Footer() {
                 We respect your privacy. Unsubscribe at any time.
               </p>
             </div>
-
-            {/* Social Links */}
-            <div className="mt-8">
-              <h4 className="text-sm font-semibold text-foreground mb-4">
-                Follow Us
-              </h4>
-              <div className="flex space-x-3">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className="w-9 h-9 bg-muted hover:bg-primary hover:text-primary-foreground rounded-lg flex items-center justify-center transition-colors group"
-                    aria-label={social.label}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
@@ -183,10 +170,16 @@ export default function Footer() {
               © {currentYear} Digital Mafia Solutions. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm text-muted-foreground">
-              <Link to="#" className="hover:text-primary transition-colors">
+              <Link
+                to="/privacy"
+                className="hover:text-primary transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link to="#" className="hover:text-primary transition-colors">
+              <Link
+                to="/terms"
+                className="hover:text-primary transition-colors"
+              >
                 Terms of Service
               </Link>
               <Link to="#" className="hover:text-primary transition-colors">
