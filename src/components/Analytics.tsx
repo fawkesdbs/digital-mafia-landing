@@ -1,33 +1,54 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-const GA_MEASUREMENT_ID = "G-426V5VQE2J"; // Replace with your actual ID
+// Replace with your actual ID
+const GA_MEASUREMENT_ID = "G-426V5VQE2J";
 
 export function Analytics() {
+  // Use a ref to ensure we never inject the script twice
+  const initialized = useRef(false);
+
   useEffect(() => {
-    // 1. Check if user has consented
-    const consent = localStorage.getItem("digital-mafia-cookie-consent");
+    // This function handles the actual loading logic
+    const loadAnalytics = () => {
+      const consent = localStorage.getItem("digital-mafia-cookie-consent");
 
-    if (consent === "accepted") {
-      // 2. Load the Google Analytics Script dynamically
-      const script = document.createElement("script");
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-      script.async = true;
-      document.head.appendChild(script);
+      // If accepted AND we haven't loaded it yet
+      if (consent === "accepted" && !initialized.current) {
+        initialized.current = true;
 
-      // 3. Initialize the global function
-      window.dataLayer = window.dataLayer || [];
-      function gtag(...args: (string | Date | number | boolean | object)[]) {
-        window.dataLayer.push(args);
+        // 1. Load the Google Analytics Script
+        const script = document.createElement("script");
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+        script.async = true;
+        document.head.appendChild(script);
+
+        // 2. Initialize the global function
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(...args: (string | Date | number | boolean | object)[]) {
+          window.dataLayer.push(args);
+        }
+
+        gtag("js", new Date());
+        gtag("config", GA_MEASUREMENT_ID);
+
+        console.log("✅ Google Analytics loaded successfully");
       }
-      gtag("js", new Date());
-      gtag("config", GA_MEASUREMENT_ID);
-    }
+    };
+
+    // Check immediately on mount (in case they accepted on a previous visit)
+    loadAnalytics();
+
+    // Listen for the "I just clicked accept" event
+    window.addEventListener("consent-updated", loadAnalytics);
+
+    // Cleanup listener on unmount
+    return () => window.removeEventListener("consent-updated", loadAnalytics);
   }, []);
 
-  return null; // This component renders nothing visually
+  return null;
 }
 
-// Add TypeScript support for the window object
 declare global {
   interface Window {
     dataLayer: unknown[];

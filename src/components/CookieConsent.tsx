@@ -18,6 +18,7 @@ export function CookieConsent() {
 
   const handleAccept = () => {
     localStorage.setItem("digital-mafia-cookie-consent", "accepted");
+    window.dispatchEvent(new Event("consent-updated"));
     setIsVisible(false);
   };
 
