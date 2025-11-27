@@ -21,7 +21,6 @@ import {
   HeadphonesIcon,
   ChevronDown,
   ChevronUp,
-  BarChart3,
   Users,
   Search,
   Lightbulb,
@@ -34,141 +33,156 @@ import {
   Shield,
   MessageCircle,
   Sparkles,
+  FileText, // Added for Copywriting
 } from "lucide-react";
 import { useState } from "react";
 
 export default function Services() {
   const [expandedPillar, setExpandedPillar] = useState<number | null>(null);
 
+  // Updated Service Pillars based on Strategic Market Analysis (MVR)
   const servicePillars = [
     {
       icon: <Target className="w-8 h-8" />,
       title: "Digital Strategy & Research",
-      subtitle: "Understanding your challenge first",
+      subtitle: "The Brains: High-level counsel",
       description:
-        "We start every project by deeply understanding your business, audience, and challenges. Our research-driven approach ensures we're solving the right problems with the right solutions.",
+        "We don't just execute; we think. Our 'Consigliere' level advice ensures your digital moves are calculated, strategic, and profitable.",
       services: [
         {
-          name: "Market Analysis",
+          name: "Principal Consulting",
           description:
-            "Comprehensive analysis of your market, competitors, and opportunities.",
-          icon: <BarChart3 className="w-5 h-5" />,
+            "Strategic guidance on digital transformation and business logic.",
+          icon: <Lightbulb className="w-5 h-5" />,
+          startingPrice: "R1,250 / hour", //
         },
         {
-          name: "Audience Research",
+          name: "Digital Audit & Roadmap",
           description:
-            "Deep insights into your target audience's needs, behaviors, and preferences.",
-          icon: <Users className="w-5 h-5" />,
-        },
-        {
-          name: "Feasibility Studies",
-          description:
-            "Technical and business feasibility assessment for your project ideas.",
+            "Deep-dive analysis of your current digital presence with a clear roadmap.",
           icon: <Search className="w-5 h-5" />,
+          startingPrice: "R5,500 (Waived on Retainer)", // [cite: 439]
         },
         {
-          name: "Digital Audits",
+          name: "Automation Consulting",
           description:
-            "Comprehensive review of your current digital presence and performance.",
-          icon: <Shield className="w-5 h-5" />,
+            "Mapping out business processes to identify bottlenecks and efficiency gains.",
+          icon: <Zap className="w-5 h-5" />,
+          startingPrice: "R1,250 / hour", // [cite: 439]
+        },
+        {
+          name: "Strategic Copywriting",
+          description:
+            "Sales psychology-driven copy. Not just text, but persuasion.",
+          icon: <FileText className="w-5 h-5" />,
+          startingPrice: "R3.80 / word", // [cite: 684]
         },
       ],
     },
     {
       icon: <Palette className="w-8 h-8" />,
-      title: "Creative & Content",
-      subtitle: "Bringing your vision to life",
+      title: "Creative & Content", // Updated Title
+      subtitle: "The Face: Visuals that sell",
       description:
-        "Our creative team crafts compelling visual identities and content strategies that resonate with your audience and communicate your unique value proposition.",
+        "We craft the face of your business. From brand identity to high-volume video production, we ensure you look untouchable.",
       services: [
         {
-          name: "Brand Identity Design",
-          description:
-            "Complete brand identity systems including logos, colors, and guidelines.",
+          name: "Brand Identity",
+          description: "Complete logo, color palette, and usage guidelines.",
           icon: <PenTool className="w-5 h-5" />,
+          startingPrice: "R8,500", // [cite: 441]
         },
         {
           name: "UI/UX Design",
-          description:
-            "User-centered design for websites, apps, and digital experiences.",
-          icon: <Lightbulb className="w-5 h-5" />,
+          description: "High-fidelity interface design per screen/view.",
+          icon: <Palette className="w-5 h-5" />,
+          startingPrice: "R950 / screen", // [cite: 441]
         },
         {
-          name: "Content Strategy",
+          name: "Social Video (Short Form)",
           description:
-            "Strategic content planning and creation across all channels.",
-          icon: <MessageCircle className="w-5 h-5" />,
-        },
-        {
-          name: "Video Production",
-          description:
-            "Professional video content for marketing, training, and storytelling.",
+            "Batch shooting day for Reels/TikToks. Includes 10-15 edits.",
           icon: <Video className="w-5 h-5" />,
+          startingPrice: "R14,500 / day", // [cite: 672]
+        },
+        {
+          name: "Corporate Video",
+          description:
+            "High-fidelity brand story video with drone footage and pro editing.",
+          icon: <Video className="w-5 h-5" />,
+          startingPrice: "From R25,000", // [cite: 677]
         },
       ],
     },
     {
       icon: <Cog className="w-8 h-8" />,
-      title: "Tech & Automation",
-      subtitle: "Building solutions that scale",
+      title: "Web & Tech", // Updated Title
+      subtitle: "The Engine: Systems that run",
       description:
-        "We develop custom websites, applications, and automation tools that streamline your operations and enhance your customer experience.",
+        "We use high-efficiency low-code tools to build robust systems faster and cheaper than traditional dev shops.",
       services: [
         {
-          name: "Website Development",
+          name: "'Legitimacy' Website",
           description:
-            "Custom websites built for performance, SEO, and user experience.",
+            "5-Page Standard Site. Includes conversion copy and speed optimization.",
           icon: <Globe className="w-5 h-5" />,
+          startingPrice: "R14,500", // [cite: 591]
         },
         {
-          name: "Mobile Applications",
+          name: "'Empire' E-commerce",
           description:
-            "Native and cross-platform mobile apps for iOS and Android.",
-          icon: <Smartphone className="w-5 h-5" />,
-        },
-        {
-          name: "Workflow Automation",
-          description:
-            "Custom automation solutions to streamline business processes.",
-          icon: <Zap className="w-5 h-5" />,
-        },
-        {
-          name: "E-commerce Solutions",
-          description:
-            "Complete online store development with payment and inventory systems.",
+            "Full online store setup (Shopify/Woo) with payment gateways.",
           icon: <TrendingUp className="w-5 h-5" />,
+          startingPrice: "From R45,000", // [cite: 599]
+        },
+        {
+          name: "App MVP (Bubble.io)",
+          description:
+            "Rapid launch of functional web apps. Save months of dev time.",
+          icon: <Smartphone className="w-5 h-5" />,
+          startingPrice: "From R75,000", // [cite: 611]
+        },
+        {
+          name: "Automation 'Connector'",
+          description:
+            "Link your apps (e.g., Leads → Sheet → Email) to save manual work.",
+          icon: <Zap className="w-5 h-5" />,
+          startingPrice: "R4,500 / setup", // [cite: 700]
         },
       ],
     },
     {
       icon: <HeadphonesIcon className="w-8 h-8" />,
-      title: "Management & Support",
-      subtitle: "Ensuring ongoing success",
+      title: "Growth & Support", // Updated Title
+      subtitle: "The Shield: Protecting your asset",
       description:
-        "We provide comprehensive campaign management, analytics, and ongoing support to ensure your solutions continue to deliver results over time.",
+        "Ongoing protection and aggressive growth strategies. We keep your systems running and your leads flowing.",
       services: [
         {
-          name: "Campaign Management",
-          description: "End-to-end management of digital marketing campaigns.",
-          icon: <Target className="w-5 h-5" />,
-        },
-        {
-          name: "Analytics & Reporting",
+          name: "'Boss' Maintenance",
           description:
-            "Comprehensive tracking and reporting on performance metrics.",
-          icon: <BarChart3 className="w-5 h-5" />,
-        },
-        {
-          name: "Technical Support",
-          description:
-            "Ongoing technical maintenance and support for all solutions.",
+            "Hosting, security, backups, and 2 hours of dev updates/month.",
           icon: <Shield className="w-5 h-5" />,
+          startingPrice: "R2,800 / month", // [cite: 623]
         },
         {
-          name: "Strategic Consulting",
+          name: "SEO 'Local Domination'",
+          description: "Dominate local search results and Google Maps.",
+          icon: <Search className="w-5 h-5" />,
+          startingPrice: "R5,500 / month", // [cite: 634]
+        },
+        {
+          name: "Social 'Soldier' Plan",
           description:
-            "Ongoing strategic guidance and optimization recommendations.",
-          icon: <Lightbulb className="w-5 h-5" />,
+            "3 Platforms, 12 Posts, and active Community Management.",
+          icon: <MessageCircle className="w-5 h-5" />,
+          startingPrice: "R7,500 / month", // [cite: 649]
+        },
+        {
+          name: "PPC Management",
+          description: "Google/Meta Ads management. (Ad spend is separate).",
+          icon: <Target className="w-5 h-5" />,
+          startingPrice: "R4,500 + 12%", // [cite: 663]
         },
       ],
     },
@@ -307,17 +321,22 @@ export default function Services() {
                           {pillar.services.map((service, serviceIndex) => (
                             <div
                               key={serviceIndex}
-                              className="flex items-start space-x-3"
+                              className="flex items-start space-x-3 group"
                             >
                               <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 mt-1">
                                 <div className="text-primary">
                                   {service.icon}
                                 </div>
                               </div>
-                              <div>
-                                <h4 className="font-semibold mb-1">
-                                  {service.name}
-                                </h4>
+                              <div className="flex-1">
+                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-1">
+                                  <h4 className="font-semibold">
+                                    {service.name}
+                                  </h4>
+                                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary self-start sm:self-auto whitespace-nowrap">
+                                    {service.startingPrice}
+                                  </span>
+                                </div>
                                 <p className="text-sm text-muted-foreground leading-relaxed">
                                   {service.description}
                                 </p>
@@ -417,16 +436,16 @@ export default function Services() {
                 <TooltipTrigger asChild>
                   <div>
                     <Button
+                      asChild
                       variant="outline"
                       size="lg"
-                      disabled
-                      className="border-primary/50 text-primary/50 opacity-50 cursor-not-allowed"
+                      className="border-primary/50 text-foreground hover:bg-primary/5"
                     >
-                      View Ready-Made Products
+                      <Link to="/pricing">View Pricing Packages</Link>
                     </Button>
                   </div>
                 </TooltipTrigger>
-                <TooltipContent>Coming Soon</TooltipContent>
+                <TooltipContent>View our standard packages</TooltipContent>
               </Tooltip>
             </div>
           </div>
