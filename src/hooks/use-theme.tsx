@@ -24,13 +24,24 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
 export function ThemeProvider({
   children,
-  defaultTheme = "dark",
   storageKey = "digital-mafia-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
-  );
+  const [theme, setTheme] = useState<Theme>(() => {
+    // 1. Check if the user has manually set a preference previously
+    const storedTheme = localStorage.getItem(storageKey) as Theme;
+    if (storedTheme) {
+      return storedTheme;
+    }
+
+    // 2. If not, check the system/browser preference
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+
+    // 3. If system is light, return light
+    return "light";
+  });
 
   useEffect(() => {
     const root = window.document.documentElement;
